@@ -304,7 +304,7 @@ void() W_FireSuperShotgun =
 {
 	local vector dir;
 
-	if (self.currentammo == 1)
+	if (self.ammo_shells == 1)
 	{
 		W_FireShotgun ();
 		return;
@@ -1437,6 +1437,10 @@ ImpulseCommands
 */
 void() ImpulseCommands =
 {
+	SRL_ImpulseCommands();
+	if (!self.impulse)
+		return;
+
 	if (self.impulse >= 1 && self.impulse <= 8)
 		W_ChangeWeapon ();
 

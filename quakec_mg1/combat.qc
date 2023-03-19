@@ -171,6 +171,7 @@ void(entity targ, entity attacker) Killed =
 	}
 
 	ClientObituary(self, attacker);
+	SRL_Killed(self, attacker);
 	
 	self.takedamage = DAMAGE_NO;
 	self.touch = SUB_Null;
@@ -200,6 +201,8 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	if (!targ.takedamage)
 		return;
 		
+	damage = damage * SRL_GetDamageMultiplier(targ, inflictor, attacker, damage);
+
 	// Yoder add, September 9 2020
 	if (targ.is_frozen)
 		return;

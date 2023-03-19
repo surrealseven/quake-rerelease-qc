@@ -345,8 +345,6 @@ void() Laser_Touch =
 
 void(vector org, vector vec) LaunchLaser =
 {
-  local vector  vec;
-    
   if (self.classname == "monster_enforcer")
     sound (self, CHAN_WEAPON, "enforcer/enfire.wav", 1, ATTN_NORM);
 
@@ -382,7 +380,7 @@ void() spikeshooter_use =
   else
   {
     sound (self, CHAN_VOICE, "weapons/spike2.wav", 1, ATTN_NORM);
-    launch_spike (self.origin, self.movedir);
+    launch_spike (self.origin, self.movedir, 1000);
     newmis.velocity = self.movedir * 500;
 
     if (self.spawnflags & SPAWNFLAG_SUPERSPIKE)

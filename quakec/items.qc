@@ -93,6 +93,8 @@ void() StartItem =
 {
 	self.nextthink = time + 0.2;	// items start after other solids
 	self.think = PlaceItem;
+
+	SRL_StartItem();
 };
 
 /*
@@ -1417,6 +1419,9 @@ DropBackpack
 void() DropBackpack =
 {
 	local entity    item;
+
+	if (!SRL_ShouldDropBackpack())
+		return;
 
 	if (!(self.ammo_shells + self.ammo_nails + self.ammo_rockets + self.ammo_cells))
 		return; // nothing in it

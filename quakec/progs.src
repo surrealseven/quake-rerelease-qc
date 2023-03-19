@@ -1,6 +1,10 @@
-../progs.dat
+// ../progs.dat
+S:/SteamLibrary/steamapps/common/Quake/rerelease/id1/progs.dat
+
 
 defs.qc
+../surreal/srl_defs.qc
+
 subs.qc
 fight.qc
 ai.qc
@@ -36,3 +40,8 @@ monsters/enforcer.qc	// registered
 monsters/shub.qc		// registered
 
 bots/bot.qc				// bot support
+
+../surreal/srl_items.qc
+../surreal/srl_gungame.qc
+../surreal/srl_soulcollector.qc
+../surreal/srl_game.qc

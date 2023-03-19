@@ -39,7 +39,7 @@ float team2shirt;
 
 entity team1_lastspawn;
 entity team2_lastspawn;
-float nextteamupdtime;  // time until next team update
+//float nextteamupdtime;  // time until next team update
 float last_flag_capture;  // time of last capture
 float last_capture_team;  // last team that captured
 
@@ -147,7 +147,7 @@ void(entity e, float top, float bottom) TeamSetColor =
   {
     if (checkextension("DP_SV_SETCOLOR"))
     {
-      local float color = bottom + top * 16
+      local float color = bottom + top * 16;
       setcolor(e, color);
       return;
     }
@@ -369,10 +369,11 @@ float(float color) TeamColorIsLegal =
         // All colors are legal if teamplay is negative.
         if( teamplay < 0 )
                 return TRUE;
-        if( (color == TEAM_COLOR1) && (TEAM_COLOR1 >= 0) )
+        if( color == TEAM_COLOR1 )
                 return TRUE;
-        if( (color == TEAM_COLOR2) && (TEAM_COLOR2 >= 0) )
+        if( color == TEAM_COLOR2 )
                 return TRUE;
+        return FALSE;
 };
 
 float(float t) TeamGetShirt =
@@ -410,8 +411,6 @@ void() TeamCheckTeam =
   local float newcolor;
 
   local entity p;
-
-  local string n;
 
   if ( self.lastteam >= 0 ) {
       if( TeamColorIsLegal(self.team ) ) {
@@ -462,7 +461,6 @@ Check for team changing and perform whatever actions are neccessary.
 void() TeamCheckLock =
 {
   local   float   n;
-  local   string  s;
 
   // Don't do anything if teamplay is negative
   if ( teamplay < 0 )
@@ -888,7 +886,6 @@ void () TeamCaptureRegenFlags =
 
 void(entity flg) TeamDropFlag =
 {
-  local entity item, f, oself;
   local entity p;
 
   p = flg.owner;
@@ -934,7 +931,7 @@ void(entity player) TeamCaptureDropFlagOfPlayer =
 
 void() TeamCaptureFlagTouch =
 {
-  local entity p, oself;
+  local entity p;
 
   if (other.classname != "player")
     return;
@@ -1080,7 +1077,6 @@ void() TeamCaptureFlagThink =
   local entity e;
   local vector v;
   local float f;
-  local string s;
 
   self.nextthink = time + 0.1;
 

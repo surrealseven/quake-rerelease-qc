@@ -262,6 +262,7 @@ float	FL_JUMPRELEASED			= 4096;	// for jump debouncing
 float	FL_ISBOT				= 8192;	// marks a player as a bot
 float	FL_FUTUREMONSTER		= 16384;// for marking unspawned monsters
 float	FL_INSHELTER			= 32768;// for marking entities as sheltered from trigger_push
+float 	FL_OBJECTIVE			= 131072; 	// mal: any item marked with this is an objective of some kind.
 
 // edict.movetype values
 float	MOVETYPE_NONE			= 0;	// never moves
@@ -423,6 +424,7 @@ float	MSG_ALL			= 2;		// reliable to all
 float	MSG_INIT		= 3;		// write to the init string
 
 // team numbers for Coop
+float TEAM_NONE = -1;
 float TEAM_MONSTERS        = 0;
 float TEAM_HUMANS        = 1;
 

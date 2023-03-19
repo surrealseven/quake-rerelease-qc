@@ -94,6 +94,8 @@ void() StartItem =
 
 	self.nextthink = time + 0.2;	// items start after other solids
 	self.think = PlaceItem;
+
+	SRL_StartItem();
 };
 
 /*
@@ -1357,6 +1359,9 @@ DropBackpack
 void() DropBackpack =
 {
 	local entity	item;
+
+	if (!SRL_ShouldDropBackpack())
+		return;
 
 	// Yoder Sept24 2021 Horde Merge
 	// don't drop backpacks in horde mode

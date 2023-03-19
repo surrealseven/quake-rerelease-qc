@@ -198,6 +198,8 @@ void() worldspawn =
 	lastspawn = world;
 	InitBodyQue ();
 
+	SRL_Initialize();
+
 // custom map attributes
 	if (self.model == "maps/e1m8.bsp")
 		cvar_set ("sv_gravity", "100");

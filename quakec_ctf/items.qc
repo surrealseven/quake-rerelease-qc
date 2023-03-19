@@ -1553,10 +1553,6 @@ entity() SelectRuneSpawnPoint =
 
 void() RuneTouch =
 {
-  local string  s;
-  local float best;
-  local   entity  stemp;
-  
   if (other.classname != "player")
     return;
   if (other.health <= 0)

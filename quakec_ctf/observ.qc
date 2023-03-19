@@ -193,14 +193,13 @@ float() DoObserverImpulse =
 void () ObserverThink =
 {
     local entity e;
-    local float cont;
 
   self.weaponmodel = "";
   self.weaponframe = 0;
   self.flags = self.flags | FL_ONGROUND;
 
   { 
-    local float invcos,nv,nvp,nvpmax,nvs,nsp,sp,svz;
+    local float invcos,nvp,nvpmax,sp,svz;
     local vector f,vp,vs;
     
     svz = self.velocity_z * 0.75;

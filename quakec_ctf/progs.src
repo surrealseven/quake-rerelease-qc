@@ -1,6 +1,9 @@
-../qsrc/ctf/progs.dat
+// ../qsrc/ctf/progs.dat
+S:/SteamLibrary/steamapps/common/Quake/rerelease/ctf/progs.dat
 
 defs.qc
+../surreal/srl_defs.qc
+
 log.qc			// Console logging of game actions
 teamplay.qc     // Compile the teamplay file
 ctfgame.qc		// vote exit stuff
@@ -22,3 +25,8 @@ misc.qc
 hook.qc
 server.qc
 bots/bot.qc
+
+../surreal/srl_items.qc
+../surreal/srl_gungame.qc
+../surreal/srl_soulcollector.qc
+../surreal/srl_game.qc

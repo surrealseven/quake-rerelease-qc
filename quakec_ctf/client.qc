@@ -219,6 +219,8 @@ entity() FindIntermission =
     return spot;
   
   objerror ("FindIntermission: no spot");
+
+  return world;
 };
 
 
@@ -392,7 +394,6 @@ void() execute_changelevel =
 
 void() changelevel_touch =
 {
-  local entity  pos;
   local float noexit;
 
   if (other.classname != "player")
@@ -786,7 +787,6 @@ void() CheckRules =
 
 void() PlayerDeathThink =
 {
-  local entity  old_self;
   local float   forward;
 
   if ((self.flags & FL_ONGROUND))
@@ -821,8 +821,6 @@ void() PlayerDeathThink =
 
 void() PlayerJump =
 {
-  local vector start, end;
-  
   if (self.flags & FL_WATERJUMP)
     return;
   
@@ -994,9 +992,6 @@ Called every frame before physics are run
 */
 void() PlayerPreThink =
 {
-  local float mspeed, aspeed;
-  local float r;
-  local string  s;
 
   if (intermission_running)
   {
@@ -1280,10 +1275,6 @@ Called every frame after physics are run
 */
 void() PlayerPostThink =
 {
-  local float mspeed, aspeed;
-  local float r;
-    local   string  num;
-
 
   if (self.view_ofs == '0 0 0')
     return;   // intermission or finale
@@ -1318,7 +1309,7 @@ if (!self.observer)
     self.jump_flag = self.velocity_z;
 
   CheckPowerups ();
-
+  SRL_PlayerPostThink();
 };
 
 

@@ -98,6 +98,7 @@ void(entity targ, entity attacker) Killed =
   }
 
   ClientObituary(self, attacker);
+  SRL_Killed(self, attacker);
   
   self.takedamage = DAMAGE_NO;
   self.touch = SUB_Null;

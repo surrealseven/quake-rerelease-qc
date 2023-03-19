@@ -786,6 +786,12 @@ float walkpathtogoal( float movedist, vector goal ) = #0:ex_walkpathtogoal;
 
 float checkextension( string s ) = #99;
 
+void setcolor( entity client, float color ) = #401;
+
+void prompt( entity client, string text, float numChoices ) = #0:ex_prompt;
+void promptchoice( entity client, string text, float impulse ) = #0:ex_promptchoice;
+void clearprompt( entity client ) = #0:ex_clearprompt;
+
 //============================================================================
 
 //
@@ -794,9 +800,10 @@ float checkextension( string s ) = #99;
 void(vector tdest, float tspeed, void() func) SUB_CalcMove;
 void(entity ent, vector tdest, float tspeed, void() func) SUB_CalcMoveEnt;
 void(vector destangle, float tspeed, void() func) SUB_CalcAngleMove;
-void()  SUB_CalcMoveDone;
+void() SUB_CalcMoveDone;
 void() SUB_CalcAngleMoveDone;
 void() SUB_Null;
+void(entity attacker, float damage) SUB_NullPain = {};
 void() SUB_UseTargets;
 void() SUB_Remove;
 

@@ -23,7 +23,7 @@ void() InitBodyQueue;
 void() main =
 {
 	dprint ("main function\n");
-	
+
 // these are just commands the the prog compiler to copy these files
 
 	precache_file ("progs.dat");
@@ -194,6 +194,8 @@ void() worldspawn =
 	startingserverflags = serverflags;
 	lastspawn = world;
 	InitBodyQueue ();
+
+	SRL_Initialize();
 
 	// custom map attributes
 	if (self.model == "maps/e1m8.bsp")
@@ -412,7 +414,7 @@ void(entity ent) CopyToBodyQueue =
 	bodyqueue_head.colormap = ent.colormap;
 	bodyqueue_head.movetype = ent.movetype;
 	bodyqueue_head.velocity = ent.velocity;
-	bodyqueue_head.flags = 0;
+	bodyqueue_head.flags = 0;	
 	setorigin (bodyqueue_head, ent.origin);
 	setsize (bodyqueue_head, ent.mins, ent.maxs);
 	bodyqueue_head = bodyqueue_head.owner;

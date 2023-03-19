@@ -122,6 +122,8 @@ void() main =
   precache_sound ("ambience/water1.wav");
   precache_sound ("ambience/wind2.wav");
 
+  precache_sound ("ogre/ogdrag.wav");
+
 // shareware
   precache_file ("maps/start.bsp");
 

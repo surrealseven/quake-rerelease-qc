@@ -461,11 +461,11 @@ float PATH_IN_PROGRESS    = 4;  // path was found, and we're following it.
 //
 // globals
 //
-float movedist;
+// float movedist;
 float gameover;   // set when a rule exits
 
 string  string_null;  // null string, nothing should be held here
-float empty_float;
+// float empty_float;
 
 entity  newmis;     // launch_spike sets this after spawning it
 
@@ -620,6 +620,8 @@ float   ITEM_RUNE_MASK    = 15;
 float   ITEM_ENEMY_FLAG   = 16;
 // TEAMPLAY
 float   TEAM_STUFF_COLOR  = 32;
+
+float TEAM_NONE = -1;
 
 .float    suicide_count;
 .float    killed;     // have we been killed yet
@@ -853,6 +855,7 @@ void(vector destangle, float tspeed, void() func) SUB_CalcAngleMove;
 void()  SUB_CalcMoveDone;
 void() SUB_CalcAngleMoveDone;
 void() SUB_Null;
+void(entity attacker, float damage) SUB_NullPain;
 void() SUB_UseTargets;
 void() SUB_Remove;
 

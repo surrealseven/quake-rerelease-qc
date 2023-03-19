@@ -940,6 +940,9 @@ void() CheckRules =
 	
 	if (gameover)	// someone else quit the game already
 		return;
+
+	if (!SRL_CheckRules())
+		return;
 		
 	timelimit = cvar("timelimit") * 60;
 	fraglimit = cvar("fraglimit");
@@ -948,13 +951,13 @@ void() CheckRules =
 	{
 		NextLevel ();
 		return;
-	}
-	
+	}	
+
 	if (fraglimit && self.frags >= fraglimit)
 	{
 		NextLevel ();
 		return;
-	}	
+	}
 };
 
 //============================================================================
@@ -1233,6 +1236,8 @@ void() PlayerPreThink =
 		self.weapon = W_BestWeapon ();
 		W_SetCurrentAmmo ();
 	}
+
+	SRL_PlayerPreThink();
 };
 	
 /*
@@ -1458,6 +1463,8 @@ void() PlayerPostThink =
 
 	CheckPowerups();
 	CheckHealthRot();
+
+	SRL_PlayerPostThink();
 };
 
 /*

@@ -1,4 +1,5 @@
-#output "../progs.dat"
+// #output "../progs.dat"
+S:/SteamLibrary/steamapps/common/Quake/rerelease/mg1/progs.dat
 
 #copyright "Machinegames 2021"
 
@@ -23,6 +24,8 @@
 #includelist
 
 defs.qc
+..\surreal\srl_defs.qc
+
 math.qc
 subs.qc
 frametick.qc
@@ -75,5 +78,10 @@ map_specific/mge2m2.qc
 map_specific/hub.qc
 
 horde.qc // Yoder readded Sept 24, 2021
+
+../surreal/srl_items.qc
+../surreal/srl_gungame.qc
+../surreal/srl_soulcollector.qc
+../surreal/srl_game.qc
 
 #endlist
